@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos | OPAW</title>
+    <style>
+        /* General Styling */
+        a {
+    text-decoration: none;
+}
+
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #ffffff;
+            color: #0F5298;
+            text-align: center;
+        }
+        .header{
+            background-color: #0F5298;
+
+        } 
+
+        
+        .home-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .home-icon a {
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            font-size: 20px;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
+
+        .home-icon a:hover {
+            color: #D5F3FE;
+        }
+
+        .hero {
+            position: relative;
+            height: 200px;
+            background-color: #0F5298;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            color: #ffffff;
+            padding-left: 20px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            margin-left: 80px;
+            font-style: italic;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .hero h1::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: #fefefe;
+            margin-top: 10px;
+        }
+
+        /* Video Section */
+        .video-section {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .video-section h1 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 100px;
+            justify-content: center;
+        }
+
+        .video {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(25% - 20px); /* Two boxes in a row */
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .video img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .video h2 {
+            font-size: 18px;
+            color: #0F5298;
+            margin: 10px 0 5px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .video a {
+            text-decoration: none;
+            color: #0F5298;
+            display: block;
+        }
+
+        .video a:hover {
+            text-decoration: underline;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="home-icon">
+            <a href="index.html">⌂</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Videos</h1>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <h1>Latest Videos</h1>
+        <div class="video-grid">
+            <!-- Video Block 1 -->
+            <div class="video">
+                <a href="https://youtu.be/o95Mt48xVgM" target="_blank">
+                    <img src="https://i.postimg.cc/2SqDBGfL/sddefault-4.jpg" alt="Video Thumbnail">
+                    <h2>ICIGE 2021: Assessing OPAAW through the Lens of Gender Equity and Gender Equality</h2>
+                </a>
+            </div>
+
+            <!-- Video Block 2 -->
+            <div class="video">
+                <a href="https://youtu.be/9nML0_zS2Co" target="_blank">
+                    <img src="https://i.postimg.cc/K8dy7TZq/sddefault-5.jpg" alt="Video Thumbnail">
+                    <h2>OIC Summit addressed Israeli war on Gaza and Lebanon</h2>
+                </a>
+            </div>
+
+            <!-- Video Block 3 -->
+            <div class="video">
+                <a href="https://youtu.be/LUaXU2g_RHY?si=YArtJLwy9gitkyUb" target="_blank">
+                    <img src="https://i.postimg.cc/kgR055xx/sddefault-6.jpg" alt="Video Thumbnail">
+                    <h2>Organisation of Islamic Cooperation: OIC calls for legal measures against Israel</h2>
+                </a>
+            </div>
+
+            <!-- Video Block 4 -->
+            <div class="video">
+                <a href="https://youtu.be/Y6pBJsdP53E?si=JjWg0diQ4iZZwlKH" target="_blank">
+                    <img src="https://i.postimg.cc/nzqV9kBG/sddefault-2.jpg" alt="Video Thumbnail">
+                    <h2>OIC its Formation and Objectives explained | What is OIC | History of OIC explained</h2>
+                </a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
