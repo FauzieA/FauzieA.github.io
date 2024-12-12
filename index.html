@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPAAW</title>
+    <style>
+        body {
+            font-family: Times, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: black;
+            background-color: #ffffff;
+        }
+        header {
+            background-color: #F2FBFF;
+            color: #0F5298;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex; /* Enables flexbox layout */
+            align-items: center; /* Vertically aligns items */
+            justify-content: right; /* Splits the logo and links to opposite sides */
+            background-color: #0F5298; /* Keep your desired background color */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav-logo {
+            width: 80px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            margin-left: 50px;
+        }
+
+        nav a {
+            margin: 0 15px; /* Adds spacing between links */
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* Group links on the right */
+        .nav-links {
+            display: flex;
+            gap: 15px; /* Adds consistent spacing between links */
+        }
+
+
+        nav a:hover {
+            color: #D5F3FE; /* Set the desired font color on hover */
+            text-decoration: none; /* Prevent underline changes, if any */
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .about {
+            background: url('https://i.postimg.cc/0NbVgh5W/depositphotos-535976798-stock-photo-organisation-islamic-cooperation-flag-waving.webp') no-repeat center center/cover;
+            color: white;
+            padding: 60px 20px;
+            position: relative;
+            text-align: left; /* Align content to the left */
+            z-index: 1; /* Ensure content stays above the overlay */
+            overflow: hidden; /* Prevent pseudo-element overflow */
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* White overlay with 50% transparency */
+            z-index: -1; /* Place the overlay behind the content */
+        }
+        h1 {
+            font-family: Garamond, serif;
+            font-size: 36px;
+        }
+        
+        .about h2 {
+            font-family: Garamond, serif;
+            font-size: 30px;
+            color: #0F5298;
+            justify-content: left;
+        }
+
+
+        .objectives h2 {
+            font-family: Garamond, serif;
+            font-size: 30px;
+            color: #0F5298;
+            margin: 5px 0;
+        }
+
+        .about .underline {
+            width: 50px; /* Adjust the width as needed */
+            height: 4px;
+            background-color: #0F5298; /* Customize color */
+            margin: 30px 0; /* Add spacing between the underline and heading */
+        }
+        .about h1 {
+            font-family: Lucida Handwriting, cursive;
+            font-size: 36px;
+        }
+        .about p {
+            font-size: 18px;
+            line-height: 1.8; /* Adjust the spacing between lines */
+            margin: 20px 0; /* Adjust vertical spacing for the paragraph */
+            text-align: justify; /* Ensure the content is justified */
+            color: black;
+        }
+
+
+        .about p1 {
+            font-size: 18px;
+            margin: 20px 0;
+            color: black;
+
+        }
+        .about button {
+            background-color: #0F5298;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            justify-content: bottom;
+            font-size: 12px;
+            border-radius: 3px;
+
+        }
+        .about button:hover {
+            background-color: #24A0ED;
+        }
+        .objectives {
+          background-color: #ffffff;
+        }
+
+        .objective-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); /* Two columns */
+          gap: 15px;
+          margin: 20px 0;
+        }
+
+        .objective {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 18px;
+          color: #333;
+          border-bottom: 1px solid #ddd; /* Add divider lines */
+          padding: 10px 0;
+        }
+
+        .objective span {
+          font-size: 20px;
+          color: #ff4500; /* Icon color */
+        }
+
+        .articles {
+          background-color: #F2FBFF;
+          padding: 20px;
+        }
+
+        .articles h2 {
+            font-family: Garamond, serif;
+            font-size: 30px;
+            color: #0F5298;
+        }
+
+        .articles p {
+          font-size: 16px;
+          color: #555;
+          margin-bottom: 20px;
+        }
+
+        .articles p a {
+          color: #d72d1d;
+          text-decoration: underline;
+        }
+
+        .articles-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
+
+        .article {
+          background-color: #f9f9f9;
+          padding: 15px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .article img {
+          width: 100%;
+          height: auto;
+          border-radius: 5px;
+          transition: transform 0.3s ease;
+        }
+
+        .article:hover img {
+          transform: scale(1.05);
+        }
+
+        .article h3 {
+          font-size: 18px;
+          color: #333;
+          margin: 10px 0 5px;
+        }
+
+        .article p {
+          font-size: 14px;
+          color: #666;
+          line-height: 1.5;
+        }
+
+        .article:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        
+        .videos a {
+          color: #d72d1d;
+          text-decoration: underline;
+        }
+
+
+        /* General Styling */
+        .videos h2 {
+            font-family: Garamond, serif;
+            font-size: 30px;
+            color: #0F5298;
+            text-align: center;
+        }
+
+        .videos {
+            text-align: center;
+        }
+
+        /* Grid Layout */
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .video-item {
+            flex: 0 0 calc(33.33% - 20px); /* Three items per row */
+            max-width: 300px; /* Adjust as needed */
+            text-align: center;
+            position: relative;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover img {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px); /* Lift slightly */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-item h3 {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #0F5298;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* General Section Styling */
+        .team {
+            padding: 20px 20px;
+            background-color: #F2FBFF; /* Soft blue background */
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+
+        .team h2 {
+            font-family: Garamond, serif;
+            font-size: 30px;
+            color: #0F5298;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .team p {
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+        }
+        .team-column p1 {
+        font-size: 16px; /* Slightly larger for better readability */
+        text-align: center;
+        margin-bottom: 15px; /* Added more spacing for visual balance */
+        font-family: 'Times New Roman', serif;
+        line-height: 1.8; /* Added line spacing for improved readability */
+        color: #333; /* Neutral color for clarity and elegance */
+        letter-spacing: 0.5px; /* Subtle letter spacing for a cleaner look */
+    }
+
+
+
+
+        /* Team Row Styling */
+        .team-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 30px auto;
+            max-width: 1000px;
+        }
+
+        /* Columns Styling */
+        .team-column {
+            width: 45%;
+            text-align: left;
+        }
+
+        .team-column h3 {
+            font-size: 18px;
+            color: #0F5298;
+            margin-bottom: 10px;
+        }
+
+        .team-column p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        /* Aim Section Styling */
+        .team-aim {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+
+
+        footer {
+            background-color: #0F5298;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            font-size: 14px;
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome  to  OPAAW!</h1>
+    </header>
+    <nav>
+    <!img src="https://i.postimg.cc/jS7XCfBs/255879.png" alt="OPAAW Logo" class="nav-logo">
+        <div class="nav-links">
+            <a href="#about">About OPAAW</a>
+            <a href="#objectives">Objectives</a>
+            <a href="#articles">Articles</a>
+            <a href="#videos">Videos</a>
+            <a href="#team">Meet the Team</a>
+        </div>
+    </nav>
+
+    
+    <section id="about" class="about"> 
+    <h2>OIC Plan of Action for the Advancement of Women (OPAAW)</h2>
+    <div class="underline"></div> <!-- Short line under the heading -->
+    <p>The Organisation of Islamic Cooperation's (OIC) Plan of Action for the Advandement of Women (OPAAW), adopted in 2008, is aimed at improving the status of women in its 57 member countries by advancing their rights and opportunities. This all-encompassing plan addresses key areas of women's life outcomes, such as education, healthcare, economic participation, and legal protection.</p>
+    <button onclick="location.href='about.html'">Read More</button>
+    </section>
+
+    <section id="objectives" class="objectives"> 
+      <h2>Objectives</h2>
+      <div class="objective-grid">
+        <div class="objective"><span>💭</span> Decision-Making Participation</div>
+        <div class="objective"><span>📚</span> Education</div>
+        <div class="objective"><span>🩺</span> Health</div>
+        <div class="objective"><span>📈</span> Economic Empowerment</div>
+        <div class="objective"><span>🌍</span> Social Protection</div>
+        <div class="objective"><span>🧕</span> Protection of Women from Violence</div>
+        <div class="objective"><span>🚨</span> Women in Crisis Situations</div>
+        <div class="objective"><span>🌋</span> Women in Disasters</div>
+        <div class="objective"><span>⚔</span> Women in Armed Conflict</div>
+      </div>
+    </section>
+
+    <section id="articles" class="articles">
+      <h2>Articles & News</h2>
+      <p>Read the latest news and articles of our community. <a href="articles.html">Read all</a></p>
+      <div class="articles-grid">
+        <div class="article">
+          <img src="https://i.postimg.cc/zB9LV4t2/Whats-App-Image-2024-12-12-at-00-01-50-67225595.jpg">
+          <h3>Research: Women Are Better Leaders During a Crisis</h3>
+          <p>One study found that outcomes related to Covid-19, including number of cases and deaths, were systematically better in countries led by women.</p>
+        </div>
+        <div class="article">
+          <img src="https://i.postimg.cc/MGfmrRkP/Whats-App-Image-2024-12-12-at-00-11-07-4973ba7a.jpg">
+          <h3>War on women - Proportion of women killed in armed conflicts doubled in 2023</h3>
+          <p>In 2023, the proportion of women killed in armed conflicts doubled compared to 2022. Four out of every ten people who died as a result of conflit in 2023 were...</p>
+        </div>
+        <div class="article">
+          <img src="https://i.postimg.cc/HnXr53FY/Whats-App-Image-2024-12-12-at-00-05-43-cf260da2.jpg">
+          <h3>'Our strength is all we have left' - Generations of Palestinian women and girls endure war and displacement</h3>
+          <p>This war has irreversibly changed my life. We have been displaced repeatedly, losing my education, my friends. The fear we live with is beyond words."</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos" class="videos"> 
+        <h2>Videos</h2>
+        <p>Explore our latest videos. Click to watch on YouTube.</p>
+        <a href="videos.html">Explore More</a>
+        <div class="video-grid">
+            <div class="video-item">
+                <a href="https://youtu.be/o95Mt48xVgM" target="_blank">
+                    <img src="https://img.youtube.com/vi/o95Mt48xVgM/hqdefault.jpg" alt="Video 1 Thumbnail">
+                </a>
+                <h3>What Women in Afghanistan want you to know</h3>
+            </div>
+            <div class="video-item">
+                <a href="https://youtu.be/LUaXU2g_RHY?si=YArtJLwy9gitkyUb" target="_blank">
+                    <img src="https://img.youtube.com/vi/LUaXU2g_RHY/hqdefault.jpg" alt="Video 2 Thumbnail">
+                </a>
+                <h3>About 60,000 women serve in Ukraine's armed forces</h3>
+            </div>
+            <div class="video-item">
+                <a href="https://youtu.be/9nML0_zS2Co" target="_blank">
+                    <img src="https://img.youtube.com/vi/9nML0_zS2Co/hqdefault.jpg" alt="Video 3 Thumbnail">
+                </a>
+                <h3>Supreme Court Urges Caution In Dowry Harassment Cases To Prevent Misuse Of Law</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <h2>Meet the Team</h2>
+        <p>Get to know the dedicated individuals behind OPAAW.</p>
+
+        <!-- Advisor Section (Left Aligned) -->
+        <div class="team-row">
+            <div class="team-column left">
+                <h3>Advisor</h3>
+                <p1><strong>Dr. Muath Khalil Amayreh</strong></p1>
+                <br>
+                <p1>muath.amayreh@aiu.edu.my</p1>
+            </div>
+
+            <!-- Web Designers Section (Right Aligned) -->
+            <div class="team-column right">
+                <h3>Members</h3>
+                <p1><strong>Kyi Nuu Phyu Sin</strong></p1>
+                <br>
+                <p1>kyi.sin@student.aiu.edu.my</p1>
+                <br>
+                <p1><strong>Fauziyya Abdullahi Ahmed</strong></p1>
+                <br>
+                <p1>fauziyya.abdullahi@student.aiu.edu.my</p1>
+            </div>
+        </div>
+
+    <!-- Aim Section -->
+    <div class="team-aim">
+        <p>
+            <strong>OPAAW aims to</strong> advocate for women's rights globally, 
+            foster awareness, and drive impactful change through education and collaboration.
+        </p>
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2024 OPAAW. All rights reserved.</p>
+    </footer>
+</body>
+</html>
