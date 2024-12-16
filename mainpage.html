@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPAAW</title>
+<style>
+   /* Reset styles */
+    body, html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            background-color: #800000;
+            padding: 10px;
+            width: 100%; /* Ensures full width */
+        }
+
+        nav a {
+            margin: 0 18px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a:hover {
+            color: #d9b3b3;
+            text-decoration: none;
+        }
+        
+        /* Slideshow Container */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden; /* Ensure slides stay inside the container */
+            display: flex;
+        }
+
+        /* Slide Styles */
+        .slides {
+            min-width: 100%; /* Each slide takes full width */
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(100%);
+            opacity: 0; /* Smooth slide effect */
+        }
+
+        .slides.active {
+            opacity: 1;
+            transform: translateX(0); /* Centered in view */
+            z-index: 10;
+        }
+
+        .slides.exit-left {
+            transform: translateX(-100%); /* Slide out to the left */
+            opacity: 0;
+        }
+
+        .slides.enter-right {
+            transform: translateX(100%); /* Slide in from the right */
+            opacity: 0;
+            z-index: 5;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            z-index: 5;
+        }
+
+        /* Navigation Arrows */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            z-index: 10; /* Ensure arrows are above slides */
+        }
+
+        .prev:hover, .next:hover {
+            color: white;
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+
+        .videos a {
+        color: #d72d1d;
+        text-decoration: underline;
+        }
+
+        .niches {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+
+        .niche {
+            background-color: #ffffff;
+            padding: 30px;
+            color: #fff;
+            font-size: 1.5rem;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%; /* Circular shape */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .niche:hover {
+            transform: scale(1.1); /* Enlarge on hover */
+        }
+
+        .niche span {
+            font-size: 1rem;
+            margin-top: 10px;
+            opacity: 0.8;
+            text-shadow: 0 0 8px rgba(244, 18, 18, 0.2), 
+                 0 0 20px rgba(191, 12, 12, 0.2), 
+                 0 0 30px rgba(176, 14, 14, 0.2);
+            color: #333;
+
+        }
+
+        .niche-1 {
+            background-color: #ffc800;
+            color:#333;
+            text-weight: bold;
+        }
+
+        .niche-2 {
+            background-color: #4ae2d3;
+            color:#333;
+            text-weight: bold;
+        }
+
+
+        .niche-3 {
+            background-color: #ffcaeb;
+            color:#333;
+            text-weight: bold;
+        }
+
+        .niches h3 {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #800000;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .nichesp p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #800000;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        /* Optional: Add a shadow effect */
+        .niche:hover {
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* General Styling */
+        .videos h2 {
+            font-family: Garamond, serif;
+            font-size: 30px;
+            color: #800000;
+            text-align: center;
+        }
+
+        .videos {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        /* Grid Layout */
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .video-item {
+            flex: 0 0 calc(33.33% - 20px); /* Three items per row */
+            max-width: 300px; /* Adjust as needed */
+            text-align: center;
+            position: relative;
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(128, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .video-item:hover img {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px); /* Lift slightly */
+            box-shadow: 0 8px 12px rgba(128, 0, 0, 0.2);
+        }
+
+        .video-item h3 {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+            font-family: 'Times New Roman', serif;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        footer {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            margin-top: 20px;
+            padding: 1px;
+            width: 100%;
+        }
+
+</style>
+
+<body>
+    <nav>
+        <div class="nav-links">
+            <a href="aboutus.html">About OPAAW</a>
+            <a href="#objectives">Empowering Disadvantaged</a>
+            <a href="https://aiu.edu.my/aiu-social-business/">Social Business</a>
+            <a href="videos.html">Videos</a>
+            <a href="meettheteam.html">Meet the Team</a>
+        </div>
+    </nav>
+
+    <div class="slideshow-container">
+        <div class="slides">
+            <img src="https://i.postimg.cc/fLgqb3js/3zero.jpg" alt="Slide 1">
+        </div>
+        <div class="slides">
+            <img src="https://i.postimg.cc/qvkVfjFK/women.jpg" alt="Slide 2">
+        </div>
+        <div class="slides">
+            <img src="https://i.postimg.cc/8C52csNP/dis.jpg" alt="Slide 3">
+        </div>
+    
+        <!-- Navigation Arrows -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    
+
+    <div style="text-align: center; margin: 20px 0;">
+        <hr style="border: 2.2px solid #800000; width: 50%; margin: auto; border-radius: 2px;">
+    </div>
+    
+
+    <div style="text-align: center; margin-top: 50px; font-family:'Garamond',serif; font-size:20px; color: #800000;">
+        <h2>Sectors</h2>
+    </div>
+    <div class="niches">
+        <a href="https://aiu.edu.my/aiu-social-business/" class="niche niche-1">
+            Social Business
+            <span>A business created to solve social issues</span>
+        </a>
+        <a href="aboutus.html" class="niche niche-2">
+            OPAAW
+            <span>OIC's Plan of Action for the Advancement of Women</span>
+        </a>
+        <a href="https://example.com/wic" class="niche niche-3">
+            ED
+            <span>Empowering Disadvantages</span>
+        </a>
+    </div>
+    <div class="nichesp">
+        <p>Click each sector to explore more!</p>
+    </div>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <hr style="border: 2.2px solid #800000; width: 50%; margin: auto; border-radius: 2px;">
+    </div>
+
+    <section id="videos" class="videos"> 
+        <h2>Videos</h2>
+        <p>Explore our latest videos. Click to watch on YouTube.</p>
+        <a href="videos.html">Explore More</a>
+        <div class="video-grid">
+            <div class="video-item">
+                <a href="https://youtu.be/o95Mt48xVgM" target="_blank">
+                    <img src="https://img.youtube.com/vi/o95Mt48xVgM/hqdefault.jpg" alt="Video 1 Thumbnail">
+                </a>
+                <h3>What Women in Afghanistan want you to know!</h3>
+            </div>
+            <div class="video-item">
+                <a href="https://youtu.be/LUaXU2g_RHY?si=YArtJLwy9gitkyUb" target="_blank">
+                    <img src="https://img.youtube.com/vi/LUaXU2g_RHY/hqdefault.jpg" alt="Video 2 Thumbnail">
+                </a>
+                <h3>About 60,000 women serve in Ukraine's armed forces</h3>
+            </div>
+            <div class="video-item">
+                <a href="https://youtu.be/9nML0_zS2Co" target="_blank">
+                    <img src="https://img.youtube.com/vi/9nML0_zS2Co/hqdefault.jpg" alt="Video 3 Thumbnail">
+                </a>
+                <h3>Supreme Court Urges Caution In Dowry Harassment Cases To Prevent Misuse Of Law</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 OPAAW. All rights reserved.</p>
+    </footer>
+
+    <script>
+       let slideIndex = 0;
+        const slides = document.getElementsByClassName("slides");
+
+        function initializeSlides() {
+            // Reset all slides initially
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.transform = "translateX(100%)"; // Move all slides out of view
+                slides[i].style.opacity = 0;
+            }
+            // Show the first slide
+            slides[slideIndex].style.transform = "translateX(0)";
+            slides[slideIndex].style.opacity = 1;
+        }
+
+        function showSlides(direction = 1) {
+            const totalSlides = slides.length;
+
+            // Current slide exits
+            slides[slideIndex].style.transform = direction === 1 ? "translateX(-100%)" : "translateX(100%)";
+            slides[slideIndex].style.opacity = 0;
+
+            // Update index
+            slideIndex = (slideIndex + direction + totalSlides) % totalSlides;
+
+            // New slide enters
+            slides[slideIndex].style.transform = "translateX(0)";
+            slides[slideIndex].style.opacity = 1;
+        }
+
+        function plusSlides(direction) {
+            showSlides(direction);
+        }
+
+        function autoRotateSlides() {
+            setInterval(() => showSlides(1), 5000); // Auto-rotate every 5 seconds
+        }
+
+        // Initialize and auto-rotate
+        initializeSlides();
+        autoRotateSlides();
+
+
+    </script>
+    
+</body>
