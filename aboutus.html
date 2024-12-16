@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPAAW</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', serif;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Garamond', serif;
+        }
+
+        /* Navigation Bar */
+
+        .home-icon a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            background-color: #800000;
+            padding: 10px;
+            width: 100%;
+            font-family: 'Times New Roman', serif;
+            font-size: 22px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a:hover {
+            color: #d9b3b3;
+            text-decoration: none;
+        }
+
+
+        /* Banner Section */
+        .banner {
+            position: relative;
+            height: 300px;
+            background: url('https://i.postimg.cc/0QYTsqzZ/cover-issue-6-en-US.png') no-repeat center/cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(128, 0, 0, 0.5);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 40px;
+            box-sizing: border-box;
+        }
+
+        .overlay .content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .overlay .vertical-block {
+            width: 6px;
+            height: 100px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+        .overlay h1 {
+            color: white;
+            font-size: 40px;
+            text-align: left;
+            line-height: 1.5;
+            margin: 0;
+            text-shadow: 0 0 8px rgba(43, 40, 40, 0.5), 
+                 0 0 20px rgba(30, 27, 27, 0.2), 
+                 0 0 30px rgba(54, 49, 49, 0.2);
+        }
+
+
+        /* Intro Section */
+        .intro {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            margin-bottom: 10px;
+            font-size: 28px;
+            color: #800000;
+        }
+
+        .intro p {
+            text-align: justify;
+            margin: 0 auto;
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        /* Card Section */
+        .make-difference {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .make-difference h2 {
+            color:#800000;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: ##ffe6e6;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(128, 0, 0, 0.5);
+            text-align: center;
+            width: 14%;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            text-decoration: none; /* Remove underline for links */
+            color: inherit; /* Inherit text color */
+        }
+
+        .card h3 {
+            color: #800000;
+        }
+
+        .card:hover h3 {
+            color: #fff;
+        }
+
+        .card p{
+            color:#333;
+        }
+
+        .card:hover {
+            background: #800000;
+            color: #fff;
+            box-shadow: 0 6px 12px rgba(128, 0, 0, 0.7);
+            transform: translateY(-10px);
+        }
+
+        .card i{
+            color:#800000 !important;
+        }
+        .card:hover i{
+            color: #fff !important;
+        }
+        .card:hover p {
+            color: #fff;
+        }
+
+        .card img {
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin-bottom: 5px;
+        }
+
+        /* Image with Text Section */
+        .image-text {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+
+        }
+
+        .image-text img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        .image-text .content {
+            max-width: 600px;
+        }
+
+        .image-text h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #800000;
+        }
+
+        .image-text p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        button {
+            background-color: #800000;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #d9b3b3;
+            color: #800000;
+        }
+
+        .footer {
+            background-color: #800000;
+            color: #fff;
+            padding: 10px 40px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #d9b3b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="home-icon">
+            <a href="mainpage.html">⌂</a>
+        </div>
+        <div class="nav-links">
+            <a href="#objectives">Empowering Disadvantages</a>
+            <a href="https://aiu.edu.my/aiu-social-business/">Social Business</a>
+            <a href="#videos">Videos</a>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="overlay">
+            <div class="content">
+                <!-- Vertical Block -->
+                <div class="vertical-block"></div>
+    
+                <!-- Text Content -->
+                <h1>
+                    OIC's Plan of Action<br>
+                    for the Advancement of Women<br>
+                    (OPAAW)
+                </h1>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Paragraph Section -->
+    <section class="intro">
+        <h2>About OPAAW</h2>
+        <p>
+            The Organisation of Islamic Cooperation's (OIC) Plan of Action for the Advancement of Women (OPAAW), adopted in 2008, is aimed at improving the status of women in its 57 member countries by advancing their rights and opportunities. This all-encompassing plan addresses key areas of women’s life outcomes, such as education, healthcare, economic participation, and legal protection.
+        </p>
+    </section>
+
+    <!-- Card Section -->
+    <section class="make-difference">
+        <h2>OPAAW's Objectives</h2>
+        <div class="card-container">
+            <a href="objective1.html" class="card">
+                <i class="fa-solid fa-users" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 1</h3>
+                <p>Decision-Making Participation</p>
+            </a>
+            <a href="objective2.html" class="card">
+                <i class="fa-solid fa-graduation-cap" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 2</h3>
+                <p>Education</p>
+            </a>
+            <a href="objective3.html" class="card">
+                <i class="fa-solid fa-heart-pulse" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 3</h3>
+                <p>Health</p>
+            </a>
+            <a href="objective4.html" class="card">
+                <i class="fa-solid fa-briefcase" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 4</h3>
+                <p>Economic Empowerment</p>
+            </a>
+            <a href="objective5.html" class="card">
+                <i class="fa-solid fa-user-shield" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 5</h3>
+                <p>Social Protection</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Image with Text Section -->
+    <section class="image-text">
+        <img src="https://i.postimg.cc/3RD4wkKY/istockphoto-1999746873-612x612.png">
+        <div class="content">
+            <h2>Overall</h2>
+            <p>
+                OPAAW provides a framework and agreed-upon standard for OIC member countries to protect and improve the status of women where necessary. Crucially, it is entirely consistent with Islamic values and Shariah, as well as aligning with international standards.
+                Member states are encouraged to develop national strategies based on this framework and report their progress regularly. 
+            </p>
+            <button onclick="location.href='report.html'">Reports</button>
+        </div>
+    </section>
+
+    <section class="make-difference">
+        <div class="card-container">
+            <div class="card">
+                <i class="fa-solid fa-hand-holding-heart" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 6</h3>
+                <p>Protection of Women from Violence</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-triangle-exclamation" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 7</h3>
+                <p>Women in Crisis Situations</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-house-crack" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 8</h3>
+                <p>Women in Disasters</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-dove" style="font-size: 50px; color: #800000;"></i>
+                <h3>Objective 9</h3>
+                <p>Women in Armed Conflict</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 OPAAW | All Rights Reserved</p>
+            <ul class="footer-links">
+                <li><a href="meettheteam.html">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
