@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Team</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        body {
+            background-color: #fff; /* Clean, neutral background */
+            color: #800000;
+            line-height: 1.6;
+        }
+
+        .home-icon a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            background-color: #800000;
+            padding: 10px;
+            width: 100%; /* Ensures full width */
+            font-family: 'Times New Roman', serif;
+            font-size: 22px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-family:'Times New Roman', serif ;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a:hover {
+            color: #d9b3b3;
+            text-decoration: none;
+        }
+        /* Team Section */
+        .team-section {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .team-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #800000;
+            font-family: 'Garamond',serif;
+        }
+
+        .team-description {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Team Cards */
+        .team-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px); /* Hover animation */
+        }
+
+        .team-card.featured {
+            transform: scale(1.05);
+            border: 2px solid #ffd700;
+        }
+
+        .team-image {
+            margin: 0 auto 15px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #800000;
+            font-family: 'Garamond',serif;
+        }
+
+        .team-position {
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .team-text {
+            font-size: 12px;
+            color: #555;
+        }
+
+        
+
+        /* Star Icon for Featured Team Member */
+        .star-icon {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #ffd700;
+            color: white;
+            font-size: 14px;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        /* Background Accents */
+        .background-accent {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #e3f2fd; /* Light Blue */
+            border-radius: 20px;
+            z-index: -1;
+            transform: rotate(15deg);
+        }
+
+        .accent-left {
+            top: 20px;
+            left: -40px;
+        }
+
+        .accent-right {
+            bottom: 20px;
+            right: -40px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="home-icon">
+            <a href="mainpage.html">⌂</a>
+        </div>
+        <div class="nav-links">
+            <a href="aboutus.html">About OPAAW</a>
+            <a href="#objectives">Empowering Disadvantages</a>
+            <a href="https://aiu.edu.my/aiu-social-business/">Social Business</a>
+            <a href="#videos">Videos</a>
+        </div>
+    </nav>
+    <!-- Team Section -->
+    <section class="team-section">
+        <h1 class="team-title">OUR TEAM</h1>
+        <p class="team-description">
+            Here is the amazing teamwork!
+        </p>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <hr style="border: 2.2px solid #800000; width: 20%; margin: auto; border-radius: 2px;">
+        </div>
+
+        <div class="team-container">
+            <!-- Team Member 1 -->
+            <div class="team-card">
+                <div class="background-accent accent-left"></div>
+                <div class="team-image">
+                    <img src="https://via.placeholder.com/80" alt="Lena Pearce">
+                </div>
+                <h2 class="team-name">Kyi Nuu Phyu Sin</h2>
+                <p class="team-position"><em>Web Developer</em></p>
+                <p class="team-text">
+                    kyi.sin@student.aiu.edu.my
+                </p>
+            </div>
+
+            <!-- Team Member 2 (Featured Member) -->
+            <div class="team-card featured">
+                <div class="background-accent accent-right"></div>
+                <div class="team-image">
+                    <img src="https://via.placeholder.com/80" alt="Sophia Bach">
+                </div>
+                <h2 class="team-name">Dr. Muath Khalil Amayreh</h2>
+                <p class="team-position"><em>Advisor</em></p>
+                <p class="team-text">
+                    muath.amayreh@aiu.edu.my
+                </p>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-card">
+                <div class="background-accent accent-left"></div>
+                <div class="team-image">
+                    <img src="https://via.placeholder.com/80" alt="Arielle Copper">
+                </div>
+                <h2 class="team-name">Fauziyya Abdullahi Ahmed</h2>
+                <p class="team-position"><em>Web Developer</em></p>
+                <p class="team-text">
+                    fauziyya.abdullahi@student.aiu.edu.my
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
