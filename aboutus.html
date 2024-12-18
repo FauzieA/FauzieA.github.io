@@ -15,93 +15,119 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Times New Roman', serif;
+            overflow-x: hidden;
         }
 
         h1, h2, h3 {
             font-family: 'Garamond', serif;
         }
 
-        /* Navigation Bar */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #800000;
+            padding: 15 20px !important;
+            width: 100%;
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            box-sizing: border-box;
+            border-bottom: 0.5px solid white;
+            z-index: 10;
+        }
+
+        nav .nav-center {
+            display: flex;
+            gap: 30px;
+            flex-grow: 2;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            position: relative;
+            margin: 20px;
+        }
+
+        .nav-center a:hover::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 2px;
+            background-color: white;
+            bottom: -3px;
+            left: 50%; /* Start at the center of the parent */
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
 
         .home-icon a {
             color: white;
             text-decoration: none;
-            font-size: 20px;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            justify-content: right;
-            background-color: #800000;
-            padding: 10px;
-            width: 100%;
-            font-family: 'Times New Roman', serif;
             font-size: 22px;
         }
 
-        nav a {
-            margin: 0 15px;
+        .home-icon:hover a {
+            color:#a64d4d;
             text-decoration: none;
-            color: white;
+            font-size: 22px;
+        }
+
+
+        .contact-button a {
+            background-color: white;
+            color: #800000;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
             font-size: 14px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 15px;
+        .contact-button a:hover {
+            background-color: #a64d4d;
+            color: #fff;
         }
-
-        nav a:hover {
-            color: #d9b3b3;
-            text-decoration: none;
-        }
-
 
         /* Banner Section */
         .banner {
             position: relative;
             height: 300px;
-            background: url('https://i.postimg.cc/0QYTsqzZ/cover-issue-6-en-US.png') no-repeat center/cover;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(128, 0, 0, 0.5);
+            background-color: #800000; /* Solid background color */
             display: flex;
             justify-content: flex-start;
             align-items: center;
             padding-left: 40px;
-            box-sizing: border-box;
         }
 
-        .overlay .content {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .overlay .vertical-block {
-            width: 6px;
-            height: 100px;
-            background-color: white;
-            border-radius: 2px;
-        }
-
-        .overlay h1 {
+        .banner h1 {
             color: white;
             font-size: 40px;
-            text-align: left;
             line-height: 1.5;
-            margin: 0;
             text-shadow: 0 0 8px rgba(43, 40, 40, 0.5), 
-                 0 0 20px rgba(30, 27, 27, 0.2), 
-                 0 0 30px rgba(54, 49, 49, 0.2);
+                         0 0 20px rgba(30, 27, 27, 0.2), 
+                         0 0 30px rgba(54, 49, 49, 0.2);
         }
+
+        .banner .vertical-block {
+            width: 6px; /* Width of the vertical block */
+            height: 100px; /* Height of the vertical block */
+            background-color: white; /* Block color */
+            border-radius: 2px; /* Optional: rounded edges */
+        }
+
+        .banner .content {
+            display: flex;
+            align-items: center; /* Align text and block vertically */
+            gap: 20px; /* Add space between the block and the text */
+        }
+
+
 
 
         /* Intro Section */
@@ -127,10 +153,21 @@
         .make-difference {
             padding: 20px;
             text-align: center;
+            margin-top: 40px;
+            margin-top: 10px;
         }
 
         .make-difference h2 {
-            color:#800000;
+            color: #800000;
+        }
+
+        .make-difference1 {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .make-difference1 h2 {
+            color: #800000;
         }
 
         .card-container {
@@ -142,7 +179,7 @@
         }
 
         .card {
-            background: ##ffe6e6;
+            background: #fff;
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(128, 0, 0, 0.5);
@@ -150,64 +187,104 @@
             width: 14%;
             transition: all 0.3s ease;
             margin-top: 15px;
-            text-decoration: none; /* Remove underline for links */
-            color: inherit; /* Inherit text color */
         }
 
         .card h3 {
             color: #800000;
         }
 
-        .card:hover h3 {
-            color: #fff;
-        }
-
-        .card p{
-            color:#333;
-        }
-
         .card:hover {
-            background: #800000;
-            color: #fff;
+            background: #800000; 
+            color: #fff; 
             box-shadow: 0 6px 12px rgba(128, 0, 0, 0.7);
             transform: translateY(-10px);
         }
 
-        .card i{
-            color:#800000 !important;
+        .card-container .card {
+            text-decoration: none; /* Removes underline */
+            color: inherit; /* Ensures the text color is inherited */
+            display: block; /* Makes the entire card clickable */
+            transition: transform 0.3s, box-shadow 0.3s; /* Adds smooth hover effect */
         }
-        .card:hover i{
+
+        .card-container .card:hover {
+            cursor: pointer;
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow on hover */
+        }
+
+
+        .card i {
+            font-size: 35px; /* Reduced size */
+            color: #800000 !important;
+        }
+
+        .card:hover i, .card:hover p, .card:hover h3 {
             color: #fff !important;
         }
+
+        .footer {
+            background-color: #800000; 
+            color: #fff; 
+            padding: 10px 40px;
+            text-align: center; /* Centers the text */
+            margin-top: 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        .footer p {
+            margin: 0;
+            font-size: 12px;
+            text-align: center !important;
+        }
+
+       
+        .card p{
+            color:#333;
+        }
+
+        
+
+        .card i{
+            color:#993333 !important;
+        }
+
         .card:hover p {
-            color: #fff;
+            color: #fff; /* Text turns white */
         }
 
         .card img {
             margin-bottom: 10px;
         }
 
-        .card h3 {
-            margin-bottom: 5px;
-        }
 
-        /* Image with Text Section */
         .image-text {
+            position: relative;
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
             padding: 20px;
             justify-content: center;
-
+            margin-top: 30px;
+            overflow: visible; /* Ensure shapes don't overflow */
+            margin-bottom: 30px;
+            z-index: 1;
         }
 
         .image-text img {
-            max-width: 300px;
+            max-width: 280px;
             border-radius: 10px;
+            z-index: 1; /* Keep image above shapes */
         }
 
         .image-text .content {
             max-width: 600px;
+            z-index: 1;
         }
 
         .image-text h2 {
@@ -221,6 +298,21 @@
             line-height: 1.6;
             text-align: justify;
         }
+
+
+        .make-difference {
+            position: relative;
+            overflow: visible;
+            margin-bottom: 50px;
+        }
+
+        .make-difference1 {
+            position: relative;
+            overflow: visible;
+            margin-bottom: 40px;
+        }
+
+
 
         button {
             background-color: #800000;
@@ -236,50 +328,21 @@
             color: #800000;
         }
 
-        .footer {
-            background-color: #800000;
-            color: #fff;
-            padding: 10px 40px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 12px;
-        }
-
-        .footer-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 15px;
-        }
 
         .footer-links li {
             display: inline;
         }
 
-        .footer-links a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 12px;
-            transition: color 0.3s;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .footer-links a:hover {
-            color: #d9b3b3;
+        .card i {
+            font-size: 40px; /* Adjust size as needed */
+            color: #d23232;
         }
+
+
 
     </style>
 </head>
@@ -289,27 +352,23 @@
         <div class="home-icon">
             <a href="index.html">⌂</a>
         </div>
-        <div class="nav-links">
-            <a href="#objectives">Empowering Disadvantages</a>
-            <a href="https://aiu.edu.my/aiu-social-business/">Social Business</a>
-            <a href="#videos">Videos</a>
+        <div class="nav-center">
+            <a href="#opaw-objectives">OPAAW</a>
+            <a href="https://aiu.edu.my/aiu-social-business/">Social Business & Social Innovation</a>
+            <a href="articles.html">Articles</a>
+            <a href="videos.html">Videos</a>
+        </div>
+        <div class="contact-button">
+            <a href="meettheteam.html">Contact Us</a>
         </div>
     </nav>
+    
 
     <!-- Banner Section -->
     <section class="banner">
-        <div class="overlay">
-            <div class="content">
-                <!-- Vertical Block -->
-                <div class="vertical-block"></div>
-    
-                <!-- Text Content -->
-                <h1>
-                    OIC's Plan of Action<br>
-                    for the Advancement of Women<br>
-                    (OPAAW)
-                </h1>
-            </div>
+        <div class="content">
+            <div class="vertical-block"></div>
+            <h1>OIC's Plan of Action<br> for the Advancement of Women<br> (OPAAW)</h1>
         </div>
     </section>
     
@@ -322,82 +381,91 @@
         </p>
     </section>
 
-    <!-- Card Section -->
-    <section class="make-difference">
-        <h2>OPAAW's Objectives</h2>
-        <div class="card-container">
-            <a href="objective1.html" class="card">
-                <i class="fa-solid fa-users" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 1</h3>
-                <p>Decision-Making Participation</p>
-            </a>
-            <a href="objective2.html" class="card">
-                <i class="fa-solid fa-graduation-cap" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 2</h3>
-                <p>Education</p>
-            </a>
-            <a href="objective3.html" class="card">
-                <i class="fa-solid fa-heart-pulse" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 3</h3>
-                <p>Health</p>
-            </a>
-            <a href="objective4.html" class="card">
-                <i class="fa-solid fa-briefcase" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 4</h3>
-                <p>Economic Empowerment</p>
-            </a>
-            <a href="objective5.html" class="card">
-                <i class="fa-solid fa-user-shield" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 5</h3>
-                <p>Social Protection</p>
-            </a>
-        </div>
-    </section>
-
-    <!-- Image with Text Section -->
     <section class="image-text">
-        <img src="https://i.postimg.cc/3RD4wkKY/istockphoto-1999746873-612x612.png">
+        <img src="https://i.postimg.cc/VNJTHv03/Whats-App-Image-2024-12-17-at-19-05-57-06ccbc0b.jpg">
         <div class="content">
             <h2>Overall</h2>
             <p>
                 OPAAW provides a framework and agreed-upon standard for OIC member countries to protect and improve the status of women where necessary. Crucially, it is entirely consistent with Islamic values and Shariah, as well as aligning with international standards.
                 Member states are encouraged to develop national strategies based on this framework and report their progress regularly. 
             </p>
-            <button onclick="location.href='report.html'">Reports</button>
+        </div>
+    </section>
+    
+    <div style="text-align: center; margin: 30px 0;">
+        <i class="fa-solid fa-circle" style="font-size: 10px; color: #666;"></i>
+        <i class="fa-solid fa-star" style="font-size: 16px; color: #666;"></i>
+        <i class="fa-solid fa-circle" style="font-size: 10px; color: #666;"></i>
+        <i class="fa-solid fa-star" style="font-size: 16px; color: #666;"></i>
+        <i class="fa-solid fa-circle" style="font-size: 10px; color: #666;"></i>
+    </div>
+    
+
+    <!-- Card Section -->
+    <section id="opaw-objectives" class="make-difference">
+        <h2>OPAAW's Objectives</h2>
+        <div class="card-container">
+            <a href="objective1.html" class="card">
+                <i class="fa-solid fa-users"></i>
+                <h3>Objective 1</h3>
+                <p>Decision-Making Participation</p>
+            </a>
+            <a href="objective2.html" class="card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Objective 2</h3>
+                <p>Education</p>
+            </a>
+            <a href="objective3.html" class="card">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <h3>Objective 3</h3>
+                <p>Health</p>
+            </a>
+            <a href="objective4.html" class="card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Objective 4</h3>
+                <p>Economic Empowerment</p>
+            </a>
+            <a href="objective5.html" class="card">
+                <i class="fa-solid fa-user-shield" ></i>
+                <h3>Objective 5</h3>
+                <p>Social Protection</p>
+            </a>
+        </div>
+    </section>
+    <div style="text-align: center; margin: 20px 0;">
+        <hr style="border: 2.2px solid #666; width: 10%; margin: auto; border-radius: 2px;">
+    </div>
+
+    <section class="make-difference1">
+        <div class="card-container">
+            <a href="objective6.html" class="card">
+                <i class="fa-solid fa-hand-holding-heart" ></i>
+                <h3>Objective 6</h3>
+                <p>Protection of Women from Violence</p>
+            </a>
+            <a href="objective7.html" class="card">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <h3>Objective 7</h3>
+                <p>Women in Crisis Situations</p>
+            </a>
+            <a href="objective8.html" class="card">
+                <i class="fa-solid fa-house-crack"></i>
+                <h3>Objective 8</h3>
+                <p>Women in Disasters</p>
+            </a>
+            <a href="objective9.html" class="card">
+                <i class="fa-solid fa-dove"></i>
+                <h3>Objective 9</h3>
+                <p>Women in Armed Conflict</p>
+            </a>
         </div>
     </section>
 
-    <section class="make-difference">
-        <div class="card-container">
-            <div class="card">
-                <i class="fa-solid fa-hand-holding-heart" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 6</h3>
-                <p>Protection of Women from Violence</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-triangle-exclamation" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 7</h3>
-                <p>Women in Crisis Situations</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-house-crack" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 8</h3>
-                <p>Women in Disasters</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-dove" style="font-size: 50px; color: #800000;"></i>
-                <h3>Objective 9</h3>
-                <p>Women in Armed Conflict</p>
-            </div>
-        </div>
-    </section>
     <footer class="footer">
         <div class="footer-container">
             <p>&copy; 2024 OPAAW | All Rights Reserved</p>
-            <ul class="footer-links">
-                <li><a href="meettheteam.html">Contact Us</a></li>
-            </ul>
         </div>
     </footer>
+    
 </body>
 </html>
