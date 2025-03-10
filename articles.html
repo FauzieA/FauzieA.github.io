@@ -3,229 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles | OPAW</title>
+    <title>Articles | OPAAW</title>
     <style>
-        a {
-    text-decoration: none;
-}
         /* General Styling */
-        body {
+        * {
             margin: 0;
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #ffffff;
-            color: #0F5298;
-            text-align: center;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', serif;
         }
 
-        .home-icon {
+        body {
+            background-color: #fff;
+            color: #800000;
+            line-height: 1.6;
+        }
+
+        nav {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            background-color: #800000;
+            padding: 15 20px !important;
+            width: 100%;
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            box-sizing: border-box;
+            border-bottom: 0.5px solid white;
+            z-index: 10;
+        }
+
+        nav .nav-center {
+            display: flex;
+            gap: 30px;
+            flex-grow: 2;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-family: 'Times New Roman', serif;
+            position: relative;
+            margin: 20px;
+        }
+
+        .nav-center a:hover::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 2px;
+            background-color: white;
+            bottom: -3px;
+            left: 50%; /* Start at the center of the parent */
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        nav a:hover {
+            color: white;
         }
 
         .home-icon a {
-            display: flex;
-            align-items: center;
-            color: #ffffff;
-            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
         }
 
-        .home-icon a:hover {
-            color: #D5F3FE;
+        .home-icon:hover a {
+            color:#a64d4d;
+            text-decoration: none;
+            font-size: 22px;
         }
 
+
+        .contact-button a {
+            background-color: white;
+            color: #800000;
+            padding: 8px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-button a:hover {
+            background-color: #a64d4d;
+            color: #fff;
+        }
+        /* Hero Section */
         .hero {
             position: relative;
             height: 200px;
-            background-color: #0F5298;
+            background-color: #fff;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            text-align: left;
-            color: #ffffff;
-            padding-left: 20px;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 40px;
+            color: #800000;
         }
 
         .hero h1 {
             font-size: 40px;
-            margin-left: 80px;
-            font-style: italic;
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .hero h1::after {
-            content: "";
-            display: block;
-            width: 100px;
-            height: 3px;
-            background-color: #fefefe;
-            margin-top: 10px;
-        }
-
-        /* Article Section */
-        .article-section {
-            margin: 20px;
-            display: flex;
-            flex-wrap: wrap; /* Allows articles to wrap to the next line */
-            gap: 20px; /* Adds space between articles */
-            justify-content: center; /* Center-aligns articles */
-        }
-
-    .article {
-    display: flex;
-    flex-direction: row; /* Keep image and content side by side */
-    justify-content:first baseline;
-    align-items: center;
-    background-color: #f9f9f9;
-    margin-bottom: 15px; /* Reduced margin between boxes */
-    padding: 10px; /* Reduced padding inside the box */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(50% - 10px); /* Set each article to take up 50% of the container width, minus space for the gap */
-    box-sizing: border-box;
-}
-
-        .article img {
-            width: 40%; /* Adjust image size */
-            border-radius: 8px;
-        }
-
-        .article {
-            width: 55%;
-            padding-left: 15px;
-            text-align: left;
-        }
-
-       .article h2 {
-            font-size: 22px;
-            color: #0F5298;
-            margin-bottom: 8px;
-            text-align: left;
-        }
-
-        .article p {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .article {
-    width: 100%; /* Spans the full width of the page */
-    height: 200px; /* Set your desired height here */
-    box-sizing: border-box; /* Ensure padding/margins are accounted for */
-}
-.article img {
-    width: 200px; /* Make the image span the full width */
-    height: 100%; /* Make the image take the full height of the article */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
-}
-
-/* Ensure the content takes the full height of the article */
-.article-content {
-    height: 100%;
-    padding-left: 15px; /* Adjust padding if necessary */
-}
-
-        .article h2, .article p {
             margin: 0;
+            line-height: 1.5;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            font-family: 'Garamond', serif;
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0);
-            position: absolute;
-            width: 100%;
-            z-index: 10;
+        /* Articles Section */
+        .articles-section {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            margin-top: 0px;
         }
-        .article:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Darkens the background slightly */
-    cursor: pointer; /* Makes it clear that it's clickable */
-    transform: scale(1.02); /* Optional: Adds a slight zoom effect */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-}
+
+        .articles-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .article-card {
+            padding: 20px;
+            border: 1px solid hsl(0, 0%, 87%);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            color: #800000;
+            margin-bottom: 10px;
+        }
+
+        .article-description {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .article-link {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #800000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .article-link:hover {
+            background-color: #d9b3b3;
+        }
+
+        /* Footer */
+               .footer-links li {
+            display: inline;
+        }
+
+        .footer {
+            background-color: #800000; 
+            color: #fff; 
+            padding: 10px 40px;
+            text-align: center; /* Centers the text */
+            margin-top: 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+
+        .footer p {
+            margin: 0;
+            font-size: 12px;
+            text-align: center !important;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header class="header">
+    <!-- Navigation -->
+    <nav>
         <div class="home-icon">
             <a href="index.html">⌂</a>
         </div>
-    </header>
+        <div class="nav-center">
+            <a href="aboutus.html">The Advancement of Women Through OPAAW</a>
+            <a href="https://aiu.edu.my/aiu-social-business/">Social Business & Social Innovation</a>
+        </div>
+        <div class="contact-button">
+            <a href="meettheteam.html">Contact Us</a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Articles</h1>
+        <h1>Explore articles and <br>resources that align with our mission.</h1>
     </section>
 
-    <!-- Article Section -->
-    <section class="article-section" id="articles">
-        <h1>Latest Articles</h1>
-        
+    <!-- Articles Section -->
+    <div class="articles-section">
 
-        <!-- Article Block 1 -->
-         <a href="https://hbr.org/2020/12/research-women-are-better-leaders-during-a-crisis" target="_blank"
-        <div class="article">
-            <img src="https://i.postimg.cc/zB9LV4t2/Whats-App-Image-2024-12-12-at-00-01-50-67225595.jpg">
-            <div class="article-content">
-                <h2>Research: Women Are Better Leaders During a Crisis</h2>
-                <h3>by Jack Zenger and Joseph Folkman</h3>
-                <p>
-                    There has been a lot said about how women have done a better job leading during the Covid-19 crisis than men. According to an analysis of 360-degree assessments conducted between March and June of this year, women were rated by those who work with them as more effective.The gap between men and women in the pandemic is even larger than previously measured, possibly indicating that women tend to perform better in a crisis. In fact, women were rated more positively on 13 of the 19 competencies that comprise overall leadership effectiveness in the authors’ assessment.
-                </p>
-            </div>
+        <!-- Article 1 -->
+        <div class="article-card">
+            <h3 class="article-title">Research: Women Are Better Leaders During a Crisis</h3>
+            <h4>by Jack Zenger and Joseph Folkman</h4>
+            <p class="article-description">
+                There has been a lot said about how women have done a better job leading during the Covid-19 crisis than men. According to an analysis of 360-degree assessments conducted between March and June of this year, women were rated by those who work with them as more effective.
+            </p>
+            <a href="https://hbr.org/2020/12/research-women-are-better-leaders-during-a-crisis" target="_blank" class="article-link">Read More</a>
         </div>
-    </a>
 
-        <!-- Article Block 2 -->
-        <a href="https://www.unwomen.org/en/news-stories/press-release/2024/10/war-on-women-women-killed-in-armed-conflicts-double-in-2023" target="_blank"
-        <div class="article">
-            <img src="https://i.postimg.cc/nh0CvXSD/Whats-App-Image-2024-12-12-at-00-11-07-4973ba7a.jpg" alt="Article Image">
-            <div class="article-content">
-                <h2>War on women </h2>
-                <h3>Proportion of women killed in armed conflicts doubles in 2023</h3>
-                <p>
-                    UN paints dire picture of women in war: Despite rising conflict less than 10 per cent of negotiators in peace processes in 2023 were women.
-                    New York, 22 October - The effects of war and conflict on women and girls are worsening. In 2023, the proportion of women killed in armed conflicts doubled compared to 2022. Four out of every ten people who died as a result of conflict in 2023 were women. UN-verified cases of conflict-related sexual violence increased by 50 per cent.
-                </p>
-            </div>
+        <!-- Article 2 -->
+        <div class="article-card">
+            <h3 class="article-title">War on women</h3>
+            <h4>Proportion of women killed in armed conflicts doubles in 2023</h4>
+            <p class="article-description">
+                UN paints dire picture of women in war: Despite rising conflict less than 10 per cent of negotiators in peace processes in 2023 were women.
+                    New York, 22 October - The effects of war and conflict on women and girls are worsening. 
+                 </p>
+            <a href="https://www.unwomen.org/en/news-stories/press-release/2024/10/war-on-women-women-killed-in-armed-conflicts-double-in-2023" target="_blank" class="article-link">Read More</a>
         </div>
-    </a>
 
-        <!-- Article Block 3 -->
-        <a href="https://www.unwomen.org/en/news-stories/feature-story/2024/11/our-strength-is-all-we-have-left-generations-of-palestinian-women-and-girls-endure-war-and-displacement" target="_blank"
-        <div class="article">
-            <img src="https://i.postimg.cc/HnXr53FY/Whats-App-Image-2024-12-12-at-00-05-43-cf260da2.jpg" alt="Article Image">
-            <div class="article-content">
-                <h2>‘Our strength is all we have left’ </h2>
-                <h3>Generations of Palestinian women and girls endure war and displacement</h3>
-                <p>
-                    "This war has irreversibly changed my life. We have been displaced repeatedly, losing my education, my friends. The fear we live with is beyond words.”
+        <!-- Article 3 -->
+        <div class="article-card">
+            <h3 class="article-title">Our strength is all we have left </h3>
+            <h4>Generations of Palestinian women and girls endure war and displacement</h4>
+
+            <p class="article-description">
+                This war has irreversibly changed my life. We have been displaced repeatedly, losing my education, my friends. The fear we live with is beyond words.”
 
 Those are the words of Leen Nahal, who at the age of 14 has endured five wars in Gaza and been repeatedly displaced.
-                </p>
-            </div>
+            </p>
+            <a href="https://www.unwomen.org/en/news-stories/feature-story/2024/11/our-strength-is-all-we-have-left-generations-of-palestinian-women-and-girls-endure-war-and-displacement" target="_blank" class="article-link">Read More</a>
         </div>
-    </a>
 
-        <!-- Article Block 4 -->
-       <a href="https://www.theworldfolio.com/news/women-development-or/2370/" target="_blank"
-        <div class="article">
-            <img src="https://i.postimg.cc/P5L5Nshs/13794269311.jpg" alt="Article Image">
-            <div class="article-content">
-                <h2>Empowering women</h2>
-                <h3>The OIC’s Women’s Development Organization is ensuring that Muslim women are finally receiving their right to equality</h3>
-                <p>
-                    Out of the 1.6 billion Muslims in the world today, over half are women. However, the ever rising presence and prominence of women in Islamic countries hasn’t exactly resulted in a corresponding ascension of women’s rights. It is a fact that, on average, women continue to earn less than men for the same work, while nearly two thirds of the world’s 700 million illiterate adults are female.
-                </p>
-            </div>
+        <!-- Article 4 -->
+        <div class="article-card">
+            <h3 class="article-title">Empowering women</h3>
+            <h4>The OIC’s Women’s Development Organization is ensuring that Muslim women are finally receiving their right to equality</h4>
+            <p class="article-description">
+                Out of the 1.6 billion Muslims in the world today, over half are women. However, the ever rising presence and prominence of women in Islamic countries hasn’t exactly resulted in a corresponding ascension of women’s rights. It is a fact that, on average, women continue to earn less than men for the same work, while nearly two thirds of the world’s 700 million illiterate adults are female.
+            </p>
+            <a href="https://www.theworldfolio.com/news/women-development-or/2370/" target="_blank" class="article-link">Read More</a>
         </div>
-    </a>
-    </section>
+    </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 OPAAW | All Rights Reserved</p>
+        </div>
+    </footer>
 </body>
 </html>
